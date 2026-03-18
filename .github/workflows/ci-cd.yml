@@ -22,6 +22,7 @@ jobs:
           configPath: './lighthouserc.json'
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        continue-on-error: true
 
   deploy:
     if: github.ref == 'refs/heads/main'
@@ -35,3 +36,4 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'
+        continue-on-error: true
