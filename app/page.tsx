@@ -5,7 +5,6 @@ import { Search, Globe, MessageSquare, Settings } from 'lucide-react';
 
 export default function HomePage() {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
 
   return (
     <div className="min-h-screen bg-black text-white p-4">

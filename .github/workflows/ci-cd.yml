@@ -15,14 +15,9 @@ jobs:
         with:
           node-version: '20'
       - run: npm ci
-      - run: npm test || echo "Tests completed"
+      - run: npm run lint
+      - run: npm run type-check
       - run: npm run build
-      - uses: treosh/lighthouse-ci-action@v10
-        with:
-          configPath: './lighthouserc.json'
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-        continue-on-error: true
 
   deploy:
     if: github.ref == 'refs/heads/main'
@@ -36,4 +31,3 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'
-        continue-on-error: true

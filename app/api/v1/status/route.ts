@@ -1,8 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 const NEXXUS_API_URL = process.env.NEXXUS_API_URL || 'https://api.nexxus.ai';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const response = await fetch(`${NEXXUS_API_URL}/status`);
     const data = await response.json();
@@ -12,11 +12,12 @@ export async function GET(request: NextRequest) {
       nexxus_connected: true,
       data 
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     return NextResponse.json({ 
       status: 'error',
       nexxus_connected: false,
-      error: error?.message || 'Unknown error' 
+      error: errorMessage 
     }, { status: 500 });
   }
 }
