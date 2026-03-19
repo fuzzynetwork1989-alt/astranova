@@ -1,7 +1,8 @@
 {
-  "name": "AstranovaMobile",
+  "name": "astronavamobile",
+  "displayName": "Astranova Browser",
   "version": "1.0.0",
-  "description": "Astranova AI Browser - Mobile Edition",
+  "description": "AI-Native Browser with Real Web Navigation",
   "main": "index.js",
   "scripts": {
     "android": "react-native run-android",
@@ -16,13 +17,14 @@
     "react": "18.2.0",
     "react-native": "0.73.6",
     "react-native-webview": "^13.8.1",
-    "react-native-vector-icons": "^10.0.3",
     "react-native-safe-area-context": "^4.8.2",
     "react-native-screens": "^3.29.0",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/stack": "^6.3.20",
     "react-native-gesture-handler": "^2.14.1",
-    "react-native-reanimated": "^3.6.2"
+    "react-native-reanimated": "^3.6.2",
+    "@react-native-async-storage/async-storage": "^1.21.0",
+    "react-native-vector-icons/MaterialIcons": "^10.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
