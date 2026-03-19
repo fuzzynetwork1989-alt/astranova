@@ -5,9 +5,13 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Astranova - AI Browser',
-  description: 'AI-Native Browser with Cognitive Intelligence',
+  title: 'Astranova Browser',
+  description: 'AI-Native Browser with Real Web Navigation',
   manifest: '/manifest.json',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
@@ -17,7 +21,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <head>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="msapplication-TileColor" content="#000000" />
+      </head>
+      <body className={inter.className} style={{ margin: 0, padding: 0, overflow: 'hidden' }}>
         {children}
         <script
           dangerouslySetInnerHTML={{
